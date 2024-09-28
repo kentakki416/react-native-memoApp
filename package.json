@@ -6,7 +6,8 @@
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "lint": "eslint --fix"
   },
   "dependencies": {
     "expo": "~51.0.28",
@@ -16,8 +17,13 @@
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
+    "@eslint/js": "^9.11.1",
     "@types/react": "~18.2.45",
-    "typescript": "~5.3.3"
+    "eslint": "^9.11.1",
+    "eslint-plugin-react": "^7.37.0",
+    "globals": "^15.9.0",
+    "typescript": "~5.3.3",
+    "typescript-eslint": "^8.7.0"
   },
   "private": true
 }
