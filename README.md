@@ -8,6 +8,8 @@ npx expo install expo-router react-native-safe-area-context react-native-screens
 
 expo-routerはsrc/app配下のファイルごとにルーティングを行う
 
+react-nativeはflexboxの向きがデフォルトで縦になっている（Webと逆）
+
 
 ```
 # react-native-memoApp
