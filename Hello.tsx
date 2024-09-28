@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, type TextStyle} from 'react-native'
+import { View, Text, StyleSheet, type TextStyle } from 'react-native'
 
 interface Props {
   children: string
@@ -10,7 +10,7 @@ const Hello = (props: Props): JSX.Element => {
   const { children, bang, style } = props
   return (
     <View>
-      <Text style={[styles.text, style]}>Hello {children} 
+      <Text style={[styles.text, style]}>Hello {children}
         {bang ? '!' : ''}
       </Text>
     </View>
