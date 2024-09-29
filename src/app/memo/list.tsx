@@ -1,5 +1,5 @@
 import { View, StyleSheet, FlatList } from 'react-native'
-import {router, useNavigation} from 'expo-router'
+import { router, useNavigation } from 'expo-router'
 import MemoListItem from '../../components/MemoListItem'
 import CircleButton from '../../components/CircleButton'
 import Icon from '../../components/Icon'
@@ -9,14 +9,8 @@ import { collection, onSnapshot, orderBy, query } from 'firebase/firestore'
 import { auth, db } from '../../config'
 import type { Memo } from '../../../types/memo'
 
-const handlePress = async(): Promise<void> => {
-    try {
-
-    } catch (error) {
-
-    }
+const handlePress = (): void => {
     router.push('/memo/create')
-
 }
 const List = (): JSX.Element => {
     const [memos, setMemos] = useState<Memo[]>([])
@@ -28,13 +22,13 @@ const List = (): JSX.Element => {
         const ref = collection(db, `users/${auth?.currentUser?.uid}/memo`)
         const q = query(ref, orderBy('updatedAt', 'desc'))
         const unSubscribe = onSnapshot(q, (snapshot) => {
-            let remoteMemos: Memo[] = []
+            const remoteMemos: Memo[] = []
             snapshot.forEach((doc)=> {
                 const { bodyText, updatedAt } = doc.data()
                 remoteMemos.push({
                     id: doc.id,
                     bodyText,
-                    updatedAt: updatedAt
+                    updatedAt: updatedAt,
                 })
             })
             setMemos(remoteMemos)
@@ -48,7 +42,7 @@ const List = (): JSX.Element => {
         navigation.setOptions({
             headerRight: () => {
                 return <LogoutButton />
-            }
+            },
         })
     }, [])
 
@@ -57,7 +51,7 @@ const List = (): JSX.Element => {
             {/* FlatList: スクロールできるようにするコンポーネント*/}
             <FlatList
                 data={memos}
-                renderItem={({item}) => {return <MemoListItem memo={item}/> }}
+                renderItem={({ item }) => {return <MemoListItem memo={item}/> }}
             />
             <CircleButton onPress={handlePress}>
                 <Icon name="plus" size={40} color='#ffffff' />

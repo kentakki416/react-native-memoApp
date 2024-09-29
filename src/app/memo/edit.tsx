@@ -1,5 +1,5 @@
 import { View, TextInput, StyleSheet, Alert } from 'react-native'
-import {router, useLocalSearchParams} from 'expo-router'
+import { router, useLocalSearchParams } from 'expo-router'
 
 import CircleButton from '../../components/CircleButton'
 import Icon from '../../components/Icon'
@@ -19,9 +19,9 @@ const handlePress = (id: string, bodyText: string): void => {
         updatedAt: Timestamp.fromDate(new Date()),
     }).then(() => {
         router.back()
-    }).catch((error) => {
+    }).catch(() => {
         Alert.alert('更新に失敗しました')
-    })  
+    })
 }
 
 const Edit = () => {
@@ -29,7 +29,7 @@ const Edit = () => {
     const [bodyText, setBodyText] = useState('')
 
     useEffect(() => {
-        if(!auth.currentUser || !auth.currentUser.uid) {
+        if (!auth.currentUser || !auth.currentUser.uid) {
             return
         }
         const ref = doc(db, `users/${auth.currentUser.uid}/memo/${id}`)
@@ -54,7 +54,7 @@ const Edit = () => {
                     value={bodyText}
                     onChangeText={(text) => {setBodyText(text)}}
                     autoFocus
-                    ></TextInput>
+                ></TextInput>
             </View>
             <CircleButton onPress={() => {handlePress(id, bodyText)}}>
                 <Icon name="check" size={24} color='#ffffff' />

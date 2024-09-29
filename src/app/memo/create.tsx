@@ -1,5 +1,5 @@
 import { View, TextInput, StyleSheet, Alert } from 'react-native'
-import {router} from 'expo-router'
+import { router } from 'expo-router'
 import CircleButton from '../../components/CircleButton'
 import Icon from '../../components/Icon'
 import { addDoc, collection, Timestamp } from 'firebase/firestore'
@@ -13,7 +13,7 @@ const handlePress = (bodyText: string) => {
             router.replace('/auth/login')
             return
         }
-        const result = addDoc(collection(db, `users/${auth.currentUser.uid}/memo`), {
+        addDoc(collection(db, `users/${auth.currentUser.uid}/memo`), {
             bodyText: bodyText,
             updatedAt: Timestamp.fromDate(new Date()),
         })

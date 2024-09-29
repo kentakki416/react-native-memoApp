@@ -1,5 +1,5 @@
 import { View, Text, ScrollView, StyleSheet } from 'react-native'
-import {router, useLocalSearchParams} from 'expo-router'
+import { router, useLocalSearchParams } from 'expo-router'
 import CircleButton from '../../components/CircleButton'
 import Icon from '../../components/Icon'
 import { onSnapshot, doc } from 'firebase/firestore'
@@ -8,7 +8,7 @@ import { useEffect, useState } from 'react'
 import { auth, db } from '../../config'
 
 const handlePress = (id: string): void => {
-    router.push({pathname: '/memo/edit', params: {id}})
+    router.push({ pathname: '/memo/edit', params: { id } })
 }
 
 const Detail = (): JSX.Element => {
@@ -19,15 +19,15 @@ const Detail = (): JSX.Element => {
 
     useEffect(() => {
         if (!auth.currentUser || !auth.currentUser.uid) {
-            return 
+            return
         }
         const ref = doc(db, `users/${auth.currentUser.uid}/memo/${id}`)
         const unsubscribe = onSnapshot(ref, (memoDoc) => {
-            const {bodyText, updatedAt} = memoDoc.data() as Memo
+            const { bodyText, updatedAt } = memoDoc.data() as Memo
             setMemo({
                 id: memoDoc.id,
                 bodyText,
-                updatedAt
+                updatedAt,
             })
         })
         return unsubscribe

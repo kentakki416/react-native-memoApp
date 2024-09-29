@@ -1,12 +1,12 @@
 import { StyleSheet, Text, TextInput, View, TouchableOpacity, Alert } from 'react-native'
-import {useState} from 'react'
-import {Link, router} from 'expo-router'
+import { useState } from 'react'
+import { Link, router } from 'expo-router'
 
 import Button from '../../components/Button'
 import { signInWithEmailAndPassword } from 'firebase/auth'
 import { auth } from '../../config'
 
-const handlePress = async (email: string, password: string): Promise<void> => {
+const handlePress = async(email: string, password: string): Promise<void> => {
     try {
         await signInWithEmailAndPassword(auth, email, password)
         // 現在の画面をリスト画面に置き換える→移動履歴が残らないのでBACKボタンが表示されなくなる
@@ -24,7 +24,7 @@ const Login = (): JSX.Element => {
         <View style={styles.container}>
             <View style={styles.inner}>
                 <Text style={styles.title}>Login</Text>
-                <TextInput 
+                <TextInput
                     style={styles.input}
                     value={email}
                     onChangeText={(text) => setEmail(text)}

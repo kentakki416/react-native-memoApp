@@ -3,7 +3,7 @@ import Button from '../../components/Button'
 import { Link, router } from 'expo-router'
 import { useState } from 'react'
 import { auth } from '../../config'
-import { createUserWithEmailAndPassword} from 'firebase/auth'
+import { createUserWithEmailAndPassword } from 'firebase/auth'
 
 const handlePress = async(email: string, password: string): Promise<void> => {
     try {
@@ -22,7 +22,7 @@ const SignUp = (): JSX.Element => {
         <View style={styles.container}>
             <View style={styles.inner}>
                 <Text style={styles.title}>Sign Up</Text>
-                <TextInput 
+                <TextInput
                     style={styles.input}
                     value={email}
                     onChangeText={(text) => setEmail(text)}

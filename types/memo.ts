@@ -5,4 +5,4 @@ interface Memo {
   bodyText: string;
   updatedAt: Timestamp
 }
-export type {Memo}
+export type { Memo }
