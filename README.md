@@ -1,21 +1,33 @@
 # react-native-memoApp
-react-nativeとfirebaseを使ったメモアプリです
+react-native(expo)とfirebaseを使ったメモアプリです
 
-### coding-start
+# feature
+* firebaseとfirestoreを使って認証とメモのストアを実現
+* react-nativeによるIosアプリ
+
+# Demo
+  <img src="./assets/preview/signup.png" alt="Description" width="200" height="400">
+  <img src="./assets/preview/login.png" alt="Description" width="200" height="400">
+  <img src="./assets/preview/list.png" alt="Description" width="200" height="400">
+  <img src="./assets/preview/create.png" alt="Description" width="200" height="400">
+  <img src="./assets/preview/edit.png" alt="Description" width="200" height="400">
+
+
+## package-Memo
 ```
-npx crete-expo-app --template
+1. npx crete-expo-app --template
 
-npx expo install expo-router react-native-safe-area-context react-native-screens expo-linking expo-constants expo-status-bar react-native-gesture-handler
+2. npx expo install expo-router react-native-safe-area-context react-native-screens expo-linking expo-constants expo-status-bar react-native-gesture-handler
 
-expo-routerはsrc/app配下のファイルごとにルーティングを行う
+3. expo-routerはsrc/app配下のファイルごとにルーティングを行う
 
-react-nativeはflexboxの向きがデフォルトで縦になっている（Webと逆）
+4. react-nativeはflexboxの向きがデフォルトで縦になっている（Webと逆）
 
-npx expo install @expo/vector-icons 
+5. npx expo install @expo/vector-icons 
 
-npx expo install expo-font  
+6. npx expo install expo-font  
 
-npx expo install firebase @react-native-async-storage/async-storage 
+7. npx expo install firebase @react-native-async-storage/async-storage 
 
 ```
-# react-native-memoApp
+
