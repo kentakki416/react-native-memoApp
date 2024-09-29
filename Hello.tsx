@@ -7,24 +7,24 @@ interface Props {
 }
 
 const Hello = (props: Props): JSX.Element => {
-  const { children, bang, style } = props
-  return (
-    <View>
-      <Text style={[styles.text, style]}>Hello {children}
-        {bang ? '!' : ''}
-      </Text>
-    </View>
-  )
+    const { children, bang, style } = props
+    return (
+        <View>
+            <Text style={[styles.text, style]}>Hello {children}
+                {bang ? '!' : ''}
+            </Text>
+        </View>
+    )
 }
 
 const styles = StyleSheet.create({
-  text: {
-    color: 'white',
-    backgroundColor: 'blue',
-    fontSize: 40,
-    fontWeight: 'bold',
-    padding: 16,
-  },
+    text: {
+        color: 'white',
+        backgroundColor: 'blue',
+        fontSize: 40,
+        fontWeight: 'bold',
+        padding: 16,
+    },
 })
 
 export default Hello
